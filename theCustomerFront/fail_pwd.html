@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dashboard</title>
+		<link rel="stylesheet" type="text/css" href="../theStyle/theStyle.css">
+	</head>
+	<body>
+
+<!--------------------------------------------TITLE--------------------------------------------->
+	    <div class="TITLE" id="TheTitle" >
+			<div class="TITLE_text">SCRIPTORIUM</div>
+	    </div>
+
+<!------------------------------------------MAIN MENU------------------------------------------->
+	    <div class="mainMenu">
+	        <a href = "loginHome.html #TheTitle">HOME</a>
+	        <a href = 'loginAbout.html'>ABOUT</a>
+	        <a href = 'loginExtendPlan.html'>PLANS</a>
+	        <a href = 'loginSearch.html'>CATALOGUE</a>
+	        <div class="locRight">
+				<a class="current" href = 'loginDash.html' id="dashboard">NAME's DASHBOARD</a>
+				<a onclick="document.getElementById('login').style.display='block'">LOGOUT</a>
+			</div>
+		</div>
+		<script>
+			function getCookie(cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			}
+			function convName(uname) {
+				var name = ""
+				for (var i = 0; i < uname.length; i++) {
+					if (uname[i]=='+') {
+						name = name+' ';
+					}
+					else {
+						name = name+uname[i];
+					}
+				}
+				return name;
+			}
+			dash = document.getElementById('dashboard');
+			name = convName(getCookie("user_name").toUpperCase());
+			dash.textContent = name+"'s DASHBOARD";
+		</script>
+
+<!--------------------------------------------LOGOUT--------------------------------------------->
+		<div id="login" class="login">
+			<form class="login-form animate" method="POST" action="login.php" style="width: 40%">
+				<div class="login-form-data" style="background-color:#f1f1f1;text-align: center">
+					<h1>LOGOUT ?</h1>
+				</div>
+				<br><br>
+				<p style="text-align: center">" Are you sure, you want to log out ? "<br><br></p>
+				<br><br>
+				<div class="login-form-data" style="background-color:#f1f1f1">
+					<button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelBtn" >CANCEL</button>
+					<a href="logout.php"><button type="button" class="newUserBtn">LOGOUT</button></a>
+				</div>
+			</form>
+		</div>
+		
+<!-----------------------------------------REGISTERED------------------------------------------->
+		<div id="reg" class="login" style="display: block;text-align: center">
+			<form class="login-form animate" method="POST" action="login.php">
+				<div class="login-form-data" style="background-color:#f1f1f1">
+					<h1>FAILURE !!</h1>
+				</div>
+				<br><br>
+				<p style="text-align: center">" FAILURE "<br><br>
+				Failed to change Password.</p>
+				<br><br>
+				<div class="login-form-data" style="background-color:#f1f1f1">
+					<a href="loginDash.php"><button type="button"  class="cancelBtn">PROCEED</button></a>
+				</div>
+			</form>
+		</div>
+
+<!----------------------------------------CONTENT--------------------------------------------->
+		<div class="row">
+			<div class="side">
+				<h2>DASHBOARD</h2>
+				<h5>SCRIPTIORIUM LIBRARY, BANGALORE</h5>
+				<div class="imagesOnPage" style="height:510px;background-image: url('../theImages/theWebpageImages/About3.jpg');"></div>
+				<p >With the enormous and steady increase in the volume of our literature, we must rely more and more upon sympathetic selection, judicious editing, and the indexer who knows where to exercise discretion. Any simpleton can write a book, but it requires high skill to make an index. <br><i>- Rossiter Johnson, Author</i>
+				</p>
+			</div>
+			<div class="main">
+				<h2 id="dashHead">NAME</h2>
+				<br><br>
+				 &nbsp; &nbsp; Name &nbsp; &nbsp; : &nbsp; &nbsp; &nbsp; &nbsp; <span id="uname"></span><br><br>
+				 &nbsp; &nbsp; UserId &nbsp; &nbsp; : &nbsp; &nbsp; &nbsp; &nbsp; <span id="uid"></span><br><br>
+				 &nbsp; &nbsp; Email-Id &nbsp;: &nbsp; &nbsp; &nbsp; &nbsp; <span id="uemail"></span><br><br>
+				<script>
+					uname = convName(getCookie("user_name").toUpperCase());
+					dispName = document.getElementById('uname');
+					dispName.textContent = uname;
+					uid = getCookie("user_id").toUpperCase();
+					dispId = document.getElementById('uid');
+					dispId.textContent = uid;
+					uemail = getCookie("user_email").replace('%40','@');
+					dispEmail = document.getElementById('uemail');
+					dispEmail.textContent = uemail;
+					dashHead = document.getElementById('dashHead');
+					dashHead.textContent = uname;
+				</script>
+				<br>
+						<form action="return-renew.php" method="POST" id="returnRenew">
+							<input name="ID" id = "id_req_ip" hidden>
+							<table style="border-style: none;" id="retren">
+								<tr>
+									<th style="width:50%">Borrowed</th>
+									<th>Renew</th>
+									<th>Due Date</th>
+								</tr>
+							</table>
+						</form>
+						<br><br><br><br>
+						<br><br>
+				<div>
+				<button style="float: right" onclick="pass_change()">CHANGE PASSWORD</button>
+				<form action="passwordChange.php" method="POST"  id="passChange">
+					<input name="ID" id = "id_req_ip" hidden><br><br><br><br>
+				</form>
+			</div>
+
+
+						<?php
+
+						extract($_POST);
+						$Id_req = $_COOKIE["user_id"];
+
+						$conn = mysqli_connect("localhost","root","");
+						mysqli_select_db($conn,"wt_project_db");
+
+						echo "
+							<script>
+							var h1 = document.querySelectorAll('#id_req_ip');
+							for (i = 0, len = h1.length; i < len; i++) { 
+							    h1[i].setAttribute('value','".$Id_req."');
+							}
+							</script>
+							";
+						$query = "SELECT * FROM borrow_db WHERE id = '".$Id_req."';";
+						
+					    $conn = mysqli_connect("localhost","root","");
+					    mysqli_select_db($conn,"wt_project_db");
+					    $res = mysqli_query($conn,$query);
+						$borr_b = array();
+						$borr_r = array();
+						while ($row = mysqli_fetch_assoc($res)) {
+								$books_borr = array($row['book1'], $row['book2'], $row['book3']);
+								$ret_borr = array($row['ret1'], $row['ret2'], $row['ret3']);
+							if ($row['book1']!='-') {
+								echo "
+									<script>
+										var tab_retren = document.getElementById('retren');
+										var trEl = document.createElement('tr');
+										var td1El = document.createElement('td');
+										var td2El = document.createElement('td');
+										var td3El = document.createElement('td');
+										tab_retren.appendChild(trEl);
+										trEl.appendChild(td1El);
+										trEl.appendChild(td2El);
+										trEl.appendChild(td3El);
+										td1El.textContent = '".$row['book1']."';
+										td2El.innerHTML = '<label><input type=\'radio\' name=\'b1\' value=\'renew\'> Renew</label>';
+										td3El.textContent = '".$row['ret1']."';
+									</script>
+									";
+							}
+							if ($row['book2']!='-') {
+								echo "
+									<script>
+										var tab_retren = document.getElementById('retren');
+										var trEl = document.createElement('tr');
+										var td1El = document.createElement('td');
+										var td2El = document.createElement('td');
+										var td3El = document.createElement('td');
+										tab_retren.appendChild(trEl);
+										trEl.appendChild(td1El);
+										trEl.appendChild(td2El);
+										trEl.appendChild(td3El);
+										td1El.textContent = '".$row['book2']."';
+										td2El.innerHTML = '<label><input type=\'radio\' name=\'b2\'  value=\'renew\'> Renew</label>';
+										td3El.textContent = '".$row['ret2']."';
+									</script>
+									";
+							}
+							if ($row['book3']!='-') {
+								echo "
+									<script>
+										var tab_retren = document.getElementById('retren');
+										var trEl = document.createElement('tr');
+										var td1El = document.createElement('td');
+										var td2El = document.createElement('td');
+										var td3El = document.createElement('td');
+										tab_retren.appendChild(trEl);
+										trEl.appendChild(td1El);
+										trEl.appendChild(td2El);
+										trEl.appendChild(td3El);
+										td1El.textContent = '".$row['book3']."';
+										td2El.innerHTML = '<label><input type=\'radio\' name=\'b3\' value=\'renew\'> Renew</label>';
+										td3El.textContent = '".$row['ret3']."';
+									</script>
+									";
+							}
+
+						}
+					?>
+					<script>
+						var elecnt = 1;
+						var f1 = document.getElementById('returnRenew');
+						var b1 = document.createElement('button');
+						b1.setAttribute('type','submit');
+						b1.setAttribute('style','width:20%; float:right;');
+						b1.textContent = 'RENEW';
+						f1.appendChild(b1);
+						function pass_change() {
+							if (elecnt) {
+								var passFrm = document.getElementById('passChange');
+								var inp1 = document.createElement('input');
+								var inp2 = document.createElement('input');
+								inp1.setAttribute('type','password');
+								inp1.setAttribute('name','pwd');
+								inp1.setAttribute('placeholder','Enter current password');
+								inp2.setAttribute('type','password');
+								inp2.setAttribute('name','npwd');
+								inp2.setAttribute('placeholder','Enter new password');
+								passFrm.appendChild(inp1);
+								passFrm.appendChild(inp2);
+								var b1 = document.createElement('button');
+								b1.setAttribute('type','submit');
+								b1.setAttribute('style','width:20%; float:right;');
+								b1.textContent = 'CHANGE-PWD';
+								passFrm.appendChild(b1);
+								elecnt = 0
+							}
+						}
+					</script>
+				<br><br><br>
+
+			</div>
+		</div>
+
+<!--------------------------------------------FOOTER--------------------------------------------->
+		<div class="footer">
+			<h4>SCRIPTIORIUM LIBRARY, BANGALORE</h4>
+			Email : info@scriptorium.com &nbsp; &nbsp; &nbsp; Phone : +91 9113984792<br>
+		</div>
+		<a href="newHomePage.html" id='forceQuit' style="display: none;">ForceQuit</a>
+		<script>
+			name = convName(getCookie("user_name").toUpperCase());
+			if (!name) {
+				document.getElementById("forceQuit").click();
+			}
+		</script>
+	</body>
+</html>

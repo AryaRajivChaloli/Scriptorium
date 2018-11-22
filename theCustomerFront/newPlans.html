@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Plans</title>
+		<link rel="stylesheet" type="text/css" href="../theStyle/theStyle.css">
+	</head>
+	<body>
+
+<!--------------------------------------------TITLE--------------------------------------------->
+	    <div class="TITLE" id="TheTitle" >
+			<div class="TITLE_text">SCRIPTORIUM</div>
+	    </div>
+
+<!------------------------------------------MAIN MENU------------------------------------------->
+	    <div class="mainMenu">
+	        <a href = "newHomePage.php #TheTitle">HOME</a>
+	        <a href = 'newAbout.html'>ABOUT</a>
+	        <a class="current" href = 'newPlans.html'>PLANS</a>
+	        <a href = 'newSearch.php'>CATALOGUE</a>
+	        <div class="locRight">
+				<a href = 'newRegister.html'>NEW USER</a>
+				<a onclick="document.getElementById('login').style.display='block'">LOGIN</a>
+	        </div>
+		</div>
+
+<!--------------------------------------------LOGIN--------------------------------------------->
+		<div id="login" class="login">
+			<form class="login-form animate" method="POST" action="login.php">
+				<div class="login-form-data" style="background-color:#f1f1f1">
+					<h1>LOGIN</h1>
+				</div>
+				<div class="login-form-data">
+					<label><b>UserID / Email : </b><input type="text" name="Id" required autofocus placeholder="Enter email-id"></label>
+					<br><br>
+					<label><b>Password : </b><input type="password" name="Pwd" required placeholder="Enter Password"></label>
+					<br><br>
+					<button type="submit">LOGIN</button>
+				</div>
+				<div class="login-form-data" style="background-color:#f1f1f1">
+					<button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelBtn">CANCEL</button>
+					<a href="newRegister.html"><button type="button" class="newUserBtn">NEW USER</button></a>
+				</div>
+			</form>
+		</div>
+
+<!-------------------------------------------CONTENT-------------------------------------------->
+		<div class="row">
+			<div class="side">
+				<h2>OUTLINE</h2>
+				<table style="border: 0px">
+					<tr>
+						<th>PLANS AVAILABLE</th>
+					</tr>
+					<tr>
+						<td>Amature Pack</td>
+					</tr>
+					<tr>
+						<td>Apprentice Pack</td>
+					</tr>
+					<tr>
+						<td>Professional Pack</td>
+					</tr>
+				</table>
+			</div>
+			<div class="main">
+				<h2>PLAN COMPARISON CHART</h2>
+				<table>
+					<tr>
+						<th style="width:50%">Features</th>
+						<th>Amature</th>
+						<th>Apprentice</th>
+						<th>Professional</th>
+					</tr>
+					<tr>
+						<td>Number of Books</td>
+						<td>4</td>
+						<td>5</td>
+						<td>7</td>
+					</tr>
+					<tr>
+						<td>Number of eBooks</td>
+						<td>5</td>
+						<td>5</td>
+						<td>5</td>
+					</tr>
+					<tr>
+						<td>Duration of Validity</td>
+						<td>1 yr</td>
+						<td>1 yr</td>
+						<td>2 yrs</td>
+					</tr>
+					<tr>
+						<td>Cost</td>
+						<td>INR 4500</td>
+						<td>INR 5500</td>
+						<td>INR 9500</td>
+					</tr>
+				</table>
+				<br>
+			</div>
+		</div>
+
+<!--------------------------------------------FOOTER--------------------------------------------->
+		<div class="footer">
+			<h4>SCRIPTIORIUM LIBRARY, BANGALORE</h4>
+			Email : info@scriptorium.com &nbsp; &nbsp; &nbsp; Phone : +91 9113984792<br>
+		</div>
+
+	</body>
+</html>

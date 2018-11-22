@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AddMem</title>
+		<link rel="stylesheet" type="text/css" href="../theStyle/theStyle.css">
+	</head>
+	<body>
+
+<!--------------------------------------------TITLE--------------------------------------------->
+	    <div class="TITLE" id="TheTitle" >
+			<div class="TITLE_text">SCRIPTORIUM</div>
+	    </div>
+
+<!------------------------------------------MAIN MENU------------------------------------------->
+	    <div class="mainMenu">
+	        <a href = "Lib-HOME.php #TheTitle">HOME</a>
+	        <a href = 'Lib-ADDMEM.html'>ADD MEMBER</a>
+	        <a href = 'Lib-RETBOR.html'>RETURN/BORROW</a>
+	        <a href = 'Lib-ADDBOOK.html'>ADD BOOK</a>
+	        <a class="current" href = 'Lib-SEARCH.html'>SEARCH</a>
+	        <div class="locRight">
+				<a id="dashboard" style="color: blue;border-bottom: 3px solid transparent;">NAME's DASHBOARD</a>
+				<a onclick="document.getElementById('login').style.display='block'">LOGOUT</a>
+			</div>
+		</div>
+		<script>
+			function getCookie(cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			}
+			function convName(uname) {
+				var name = ""
+				for (var i = 0; i < uname.length; i++) {
+					if (uname[i]=='+') {
+						name = name+' ';
+					}
+					else {
+						name = name+uname[i];
+					}
+				}
+				return name;
+			}
+			dash = document.getElementById('dashboard');
+			name = convName(getCookie("user_name").toUpperCase());
+			dash.textContent = "ADMIN : "+name;
+		</script>
+
+<!--------------------------------------------LOGOUT--------------------------------------------->
+		<div id="login" class="login">
+			<form class="login-form animate" method="POST" action="login.php" style="width: 40%">
+				<div class="login-form-data" style="background-color:#f1f1f1;text-align: center">
+					<h1>LOGOUT ?</h1>
+				</div>
+				<br><br>
+				<p style="text-align: center">" Are you sure, you want to log out ? "<br><br></p>
+				<br><br>
+				<div class="login-form-data" style="background-color:#f1f1f1">
+					<button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelBtn" >CANCEL</button>
+					<a href="logout.php"><button type="button" class="newUserBtn">LOGOUT</button></a>
+				</div>
+			</form>
+		</div>
+		
+<!----------------------------------------CONTENT--------------------------------------------->
+		<div class="row">
+			<div class="side">
+				
+				<div class="tab">
+				  <button class="tablinks" onclick="openSeries(event, 'OTTOLINE')" id="defaultOpen">OTTOLINE</button>
+				  <button class="tablinks" onclick="openSeries(event, 'HARRY POTTER')">HARRY POTTER</button>
+				  <button class="tablinks" onclick="openSeries(event, 'SEPTIMUS HEAP')">SEPTIMUS HEAP</button>
+				</div>
+
+			</div>
+
+			<div class="main">
+				
+
+				<div id="OTTOLINE" class="tabcontent">
+					<h2>THE OTTOLINE SERIES</h2>
+					<div>
+						<img src="../theImages/theBookImages/Ottoline.jpg" class="imagesOnPage">
+						<blockquote><i>" Quintessentially quirky... no-one both writes and illustrates books quite like Chris Riddell. Described as a 'small girl who has big adventures', Ottoline is a series which has big appeal. "</i></blockquote>
+					</div>
+
+
+					<button class="accordion">Ottoline Goes To School</button>
+					<div class="panel">
+						<div class="row">
+							<div class="side">
+								<img src="../theImages/theBookImages/ottolineGoesToSchool.jpg" class="imagesOnPage">
+							</div>
+							<div class="main">
+								<p>
+								Meet Ottoline and her hairy, helpful friend Mr. Munroe. Ottoline is off to the Alice B. Smith School for the Differently Gifted, but she is rather worried that she doesn't have a special gift. Mr. Munroe is more worried about the ghost who is said to haunt the school halls at night. Does Ottoline discover her hidden talent and can they expose the spook?
+								Full of gorgeous, intricate black and white illustrations, Ottoline Goes to School is the second exciting Ottoline adventure from the award-winning Chris Riddell, author of Goth Girl and the Ghost of a Mouse.
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+					<button class="accordion">Section 2</button>
+					<div class="panel">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<button class="accordion">Section 3</button>
+					<div class="panel">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+
+
+					
+				</div>
+
+
+
+
+
+
+				<div id="HARRY POTTER" class="tabcontent">
+					<h3>HARRY POTTER</h3>
+					<p>HARRY POTTER is the capital of France.</p> 
+				</div>
+				<div id="SEPTIMUS HEAP" class="tabcontent">
+					<h3>SEPTIMUS HEAP</h3>
+					<p>SEPTIMUS HEAP is the capital of Japan.</p>
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+
+
+<script>
+function openSeries(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
+
+<!--------------------------------------------FOOTER--------------------------------------------->
+		<div class="footer">
+			<h4>SCRIPTIORIUM LIBRARY, BANGALORE</h4>
+			Email : info@scriptorium.com &nbsp; &nbsp; &nbsp; Phone : +91 9113984792<br>
+		</div>
+		<a href="LOGIN PAGE.php" id='forceQuit' style="display: none;">ForceQuit</a>
+		<script>
+			name = convName(getCookie("user_name").toUpperCase());
+			if (!name) {
+				document.getElementById("forceQuit").click();
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>About</title>
+		<link rel="stylesheet" type="text/css" href="../theStyle/theStyle.css">
+	</head>
+	<body>
+
+<!--------------------------------------------TITLE--------------------------------------------->
+	    <div class="TITLE" id="TheTitle" >
+			<div class="TITLE_text">SCRIPTORIUM</div>
+	    </div>
+
+<!------------------------------------------MAIN MENU------------------------------------------->
+	    <div class="mainMenu">
+	        <a href = "newHomePage.php #TheTitle">HOME</a>
+	        <a class="current" href = 'newAbout.html'>ABOUT</a>
+	        <a href = 'newPlans.html'>PLANS</a>
+	        <a href = 'newSearch.php'>CATALOGUE</a>
+	        <div class="locRight">
+				<a href = 'newRegister.html'>NEW USER</a>
+				<a onclick="document.getElementById('login').style.display='block'">LOGIN</a>
+	        </div>
+		</div>
+
+<!--------------------------------------------LOGIN--------------------------------------------->
+		<div id="login" class="login">
+			<form class="login-form animate" method="POST" action="login.php">
+				<div class="login-form-data" style="background-color:#f1f1f1">
+					<h1>LOGIN</h1>
+				</div>
+				<div class="login-form-data">
+					<label><b>UserID / Email : </b><input type="text" name="Id" required autofocus placeholder="Enter email-id"></label>
+					<br><br>
+					<label><b>Password : </b><input type="password" name="Pwd" required placeholder="Enter Password"></label>
+					<br><br>
+					<button type="submit">LOGIN</button>
+				</div>
+				<div class="login-form-data" style="background-color:#f1f1f1">
+					<button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelBtn">CANCEL</button>
+					<a href="newRegister.html"><button type="button" class="newUserBtn">NEW USER</button></a>
+				</div>
+			</form>
+		</div>
+
+<!-------------------------------------------CONTENT-------------------------------------------->
+		<div class="row">
+			<div class="side">
+				<h2>OUTLINE</h2>
+				<h5>SCRIPTIORIUM LIBRARY, BANGALORE</h5>
+				<div class="imagesOnPage" style="height:510px;background-image: url('../theImages/theWebpageImages/About3.jpg');"></div>
+				<p >With the enormous and steady increase in the volume of our literature, we must rely more and more upon sympathetic selection, judicious editing, and the indexer who knows where to exercise discretion. Any simpleton can write a book, but it requires high skill to make an index. <br><i>- Rossiter Johnson, Author</i></p>
+			</div>
+			<div class="main">
+				<h2>VISIT THE LIBRARY, TO ENTER ANOTHER WORLD</h2>
+				<br><br>
+				<div class="card">
+					<img src="../theImages/theWebpageImages/About2.jpg" style="width:100%">
+				</div>
+				<br><br>
+				<div class="card">
+					<img src="../theImages/theWebpageImages/About1.jpg" style="width:100%">
+				</div>
+			</div>
+		</div>
+
+<!--------------------------------------------FOOTER--------------------------------------------->
+		<div class="footer">
+			<h4>SCRIPTIORIUM LIBRARY, BANGALORE</h4>
+			Email : info@scriptorium.com &nbsp; &nbsp; &nbsp; Phone : +91 9113984792<br>
+		</div>
+
+	</body>
+</html>
