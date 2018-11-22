@@ -1,0 +1,266 @@
+
+/*---------------------------------------------ALL---------------------------------------------*/
+* {
+	box-sizing: border-box;
+	/*text-align: justify;*/
+}
+body {
+	font-family: "Century Gothic", Arial, Helvetica, sans-serif;
+	margin: 0;
+}
+p {
+	text-align: justify;
+}
+
+/*--------------------------------------------TITLE--------------------------------------------*/
+.TITLE {
+	background-image: url("../theImages/theWebpageImages/Title.jpg");
+	background-size: cover;
+	position: relative;
+	height: 300px;
+}
+.TITLE_text {
+	background-color: rgba(255,255,255, 0.8);
+	color: black;
+	font-size: 9vw; 
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 0px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	mix-blend-mode: soft-light;
+}
+
+/*------------------------------------------MAIN MENU------------------------------------------*/
+.mainMenu {
+	overflow: hidden;
+	background-color: #f1f1f1;
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+}
+.mainMenu a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	border-bottom: 3px solid transparent;
+}
+.mainMenu a:hover {
+	border-bottom: 3px solid red;
+}
+.mainMenu a.current {
+	border-bottom: 3px solid red;
+}
+.mainMenu div.locRight {
+	float: right;
+}
+
+/*-------------------------------------------FOOTER-------------------------------------------*/
+.footer {
+	padding: 20px;
+	text-align: center;
+	background: #ddd;
+}
+
+/*--------------------------------------------LOGIN--------------------------------------------*/
+.login {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.4);
+	padding-top: 60px;
+}
+.login-form {
+	background-color: #fefefe;
+	margin: 5% auto 15% auto;
+	border: 1px solid #888;
+	width: 60%;
+}
+.login-form-data {
+	padding: 20px;
+}
+input[type=text], input[type=email], input[type=password] {
+	font-family: "Century Gothic",Arial, Helvetica, sans-serif;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+button {
+	font-family: "Century Gothic",Arial, Helvetica, sans-serif;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+button:hover {
+	opacity: 0.8;
+}
+.cancelBtn {
+	width: auto;
+	padding: 10px 18px;
+	background-color: #f44336;
+}
+.newUserBtn {
+	float: right;
+	width: auto;
+	padding: 10px 18px;
+	background-color: #5578ff;
+}
+.invalidLogin {
+	color: red;
+}
+
+/*------------------------------------------HOME------------------------------------------*/
+.row {  
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.side {
+	-ms-flex: 30%;
+	flex: 30%;
+	background-color: #f1f1f1;
+	padding: 20px;
+}
+.main {   
+	-ms-flex: 70%;
+	flex: 70%;
+	background-color: white;
+	padding: 20px;
+}
+.imagesOnPage {
+	background-repeat: no-repeat;
+	width: 100%;
+	padding: 20px;
+}
+
+/*-----------------------------------------ABOUT-----------------------------------------*/
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+	width: 80%;
+}
+.card:hover {
+	box-shadow: 0 10px 18px 0 rgba(0,0,0,0.2);
+}
+
+/*------------------------------------------PLANS------------------------------------------*/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	border: 1px solid #ddd;
+}
+th, td {
+	text-align: center;
+	padding: 16px;
+}
+th:first-child, td:first-child {
+	text-align: left;
+}
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+/*-------------------------------------------ADDBOOK-------------------------------------------*/
+.Description {
+	font-family: "Century Gothic",Arial, Helvetica, sans-serif;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+
+/*-------------------------------------------search-------------------------------------------*/
+
+
+/* Style the tab */
+.tab {
+    background-color: #f1f1f1;
+    height: 300px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    padding: 0px 12px;
+}
+
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc; 
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+blockquote {
+	text-align: justify;
+}
+
+
+/*---------------------------------------retbor----------------------------------*/
